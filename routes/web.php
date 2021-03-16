@@ -12,7 +12,7 @@
 */
 
 Route::get('/', 'MainController@index')->name('home')->middleware('auth');
-Route::get('/filedata', 'MainController@modelview')->name('filedata')->middleware('auth');
+Route::get('/filedata/{id}', 'MainController@modelview')->name('filedata')->middleware('auth');
 Route::get('/files/{type}/{id?}', 'FileController@index');
 
 //didn't work

@@ -155,3 +155,8 @@ a {
 .fade-enter, .fade-leave-to /* .fade-leave-active до версии 2.1.8 */ {
   opacity: 0;
 }
+
+table .file-img {
+    width: 640px;
+    height: 426px;
+}

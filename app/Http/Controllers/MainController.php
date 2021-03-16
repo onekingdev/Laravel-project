@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App;
+use App\File;
 
 class MainController extends Controller
 {
@@ -11,8 +13,10 @@ class MainController extends Controller
         return view('main');
     }
 
-    public function modelview()
+    public function modelview($id)
     {
-        return view('layouts.filedata');
+        $model = new File();
+        $file = $model::where('id', $id)->first();
+        return view('layouts.filedata', compact('file'));
     }
 }

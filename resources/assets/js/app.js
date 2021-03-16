@@ -37,6 +37,7 @@ const app = new Vue({
     data: {
         files: {},
         file: {},
+        
         form: new MyFormData({filenames:[], files: []}),
 
         pagination: {},
@@ -83,10 +84,8 @@ const app = new Vue({
             axios.get('files/' + type + '?page=' + page).then(result => {
                 this.loading = false;
                 this.files = result.data.data.data;
-                console.log(this.files);
                 this.pagination = result.data.pagination;
             }).catch(error => {
-                console.log(error);
                 this.loading = false;
             });
 
@@ -162,6 +161,11 @@ const app = new Vue({
         cancelDeleting() {
             this.deletingFile = {};
             this.showConfirm = false;
+        },
+
+        setFiledata(filedata) {
+            this.file = filedata;
+            console.log(this.file);
         },
 
         deleteFile() {

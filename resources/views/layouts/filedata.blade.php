@@ -132,7 +132,7 @@
     <table class="table">
         <thead>
         <tr>
-            <th><img src="{{ asset('images/test.jpeg') }}"></th>
+            <th><img class='file-img' src="{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) . '/' . $file->type . '/' . $file->name . '.' . $file->extension }}"></th>
             <th>
                 <div class="mapContainer">
                     <a class="direction-link" target="_blank" href="//maps.google.com/maps?f=d&amp;daddr=37.422230,-122.084058&amp;hl=en">Get Directions</a>
@@ -143,20 +143,20 @@
         </thead>
         <tbody>
         <tr>
-            <td>File type</td>
-            <td>Image</td>
+            <td>File Name</td>
+            <td>{{$file->name}}</td>
         </tr>
         <tr>
-            <td>Hash type</td>
-            <td>MD5</td>
+            <td>File Type</td>
+            <td>{{$file->type}}</td>
         </tr>
         <tr>
-            <td>Hash value</td>
-            <td>jidioy778675654</td>
+            <td>File Extension</td>
+            <td>{{$file->extension}}</td>
         </tr>
         <tr>
-            <td>virus total</td>
-            <td>link</td>
+            <td>File Created</td>
+            <td>{{$file->created_at}}</td>
         </tr>
         </tbody>
     </table>

@@ -52,13 +52,13 @@
                 <br>
                 <div class="column " :class="isVideo  ? 'is-half'  : 'is-one-fifth'" v-for="file in files" >
                     <div class="card " :class="file.type == 'image' ? 'is-image' : ''">
-                            <div class="card-image">
+                        <div class="card-image">
                             <button class="delete delete-file" title="Delete" @click="prepareToDelete(file)"></button>
-                            <a href="filedata" target="_blank">
-                            <figure class="image is-4by3" v-if="file.type == 'image'">
-                                <img v-if="file === editingFile" src=""  :src="'{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) }}' + '/' + savedFile.type + '/' + savedFile.name + '.' + savedFile.extension" :alt="file.name">
-                                <img v-if="file !== editingFile" src=""  :src="'{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) }}' + '/' + file.type + '/' + file.name + '.' + file.extension" :alt="file.name">
-                            </figure>
+                            <a v-bind:href="'filedata/' + file.id" target="_blank" @click="setFiledata(file)">
+                                <figure class="image is-4by3" v-if="file.type == 'image'">
+                                    <img v-if="file === editingFile" src=""  :src="'{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) }}' + '/' + savedFile.type + '/' + savedFile.name + '.' + savedFile.extension" :alt="file.name">
+                                    <img v-if="file !== editingFile" src=""  :src="'{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) }}' + '/' + file.type + '/' + file.name + '.' + file.extension" :alt="file.name">
+                                </figure>
                             </a>
                             <div v-if="file.type == 'audio'">
                                 <figure class="image is-4by3">
