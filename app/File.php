@@ -9,7 +9,12 @@ use Auth;
 class File extends Model
 {
     protected $fillable = [
-        'name',  'type', 'extension', 'user_id'
+        'name',  
+        'type', 
+        'extension', 
+        'user_id', 
+        'address_latitude',
+        'address_longitude',
     ];
 
     public static $image_ext = ['jpg', 'jpeg', 'png', 'gif'];

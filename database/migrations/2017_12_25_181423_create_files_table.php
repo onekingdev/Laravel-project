@@ -19,6 +19,8 @@ class CreateFilesTable extends Migration
             $table->string('type');
             $table->string('extension');
             $table->integer('user_id')->unsigned();
+            $table->double('address_latitude')->nullable();
+            $table->double('address_longitude')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

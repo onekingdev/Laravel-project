@@ -22,7 +22,7 @@ class GeoController extends Controller
         return floatval($parts[0]) / floatval($parts[1]);
     }
 
-        public function get_image_location($image = ''){
+    public function get_image_location($image = ''){
 
         $exif = exif_read_data($image, 0, true);
 

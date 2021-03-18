@@ -124,6 +124,7 @@ const app = new Vue({
                     this.errors = error.response.data.errors;
                     this.showNotification(error.response.data.message, false);
                     this.fetchFile(this.activeTab);
+                    this.showNotification('Image location is not found!', true);
                 })
                 .then((response) => {
                     this.resetForm();
@@ -149,8 +150,6 @@ const app = new Vue({
                     console.error(error);
                 }
             }
-            console.log(this.form);
-            console.log(this.form.filenames);
         },
 
         prepareToDelete(file) {

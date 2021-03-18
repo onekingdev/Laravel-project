@@ -41,7 +41,7 @@
             background-repeat: no-repeat;
         }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=Your_API_KEY"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZzxXd5SgqMddUdrhdqaIW2Zw0CJLsHWY&callback=initialize"></script>
 </head>
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
@@ -66,7 +66,7 @@
 </head>
 <body>
 <script>
-    var myCenter = new google.maps.LatLng(37.422230, -122.084058);
+    var myCenter = new google.maps.LatLng({{$file->address_latitude}}, {{$file->address_longitude}});
 
     function initialize(){
         var mapProp = {
@@ -135,7 +135,7 @@
             <th><img class='file-img' src="{{ asset('storage/' . Auth::user()->name . '_' . Auth::id()) . '/' . $file->type . '/' . $file->name . '.' . $file->extension }}"></th>
             <th>
                 <div class="mapContainer">
-                    <a class="direction-link" target="_blank" href="//maps.google.com/maps?f=d&amp;daddr=37.422230,-122.084058&amp;hl=en">Get Directions</a>
+                    <a class="direction-link" target="_blank" href="//maps.google.com/maps?f=d&amp;daddr={{$file->address_latitude}},{{$file->address_longitude}}&amp;hl=en">Get Directions</a>
                     <div id="map"></div>
                 </div>
             </th>
